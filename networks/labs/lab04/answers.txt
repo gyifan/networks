@@ -1,0 +1,53 @@
+CSCI - Computer Networks
+Lab 04 - UDP
+Yifan Ge
+02/17/2014
+
+Problem 1.
+
+A) According to Wikipedia.org, "The practival limit for the data length 
+   which is imposed by the underlying IPv4 protocol is 65,507 bytes 
+   (65,535 - 8 byte UDP header - 20 byte IP header)." After testing with
+   my pingpong program. The max I can send is confirmed to be 65,507 
+   bytes. Anything higher then that will stall the pingpong program.
+
+B) Pingpong.c produces the average round-trip-time of UDP protocol. This
+   is the time of one package with inputed msg_length sent from the client
+   to the server until the client receives all the echo from the server.
+   This is average time is computed by sending msg_num many msg_length long
+   messages to the server. It adds up the rtt of each message communication
+   and divide the total by msg_num.
+
+C) Compared with TCP protocol, the rtt of UCP is a little slower than 
+   C and Python implementations of TCP, but faster than Java implmenetation.
+
+
+Problem 2.
+
+1. From sizeof operator, the structure is said to have 288 bytes of memory.
+   These 288 bytes are consisted by the following elements in node_t struct.
+        4    bytes  ->  int len
+        256  bytes  ->  char words
+        8    bytes  ->  double rate
+        1    byte   ->  char byte
+        8    bytes  ->  struct node_t * next
+   Since the machine is 64 bit, it can only address 8 bytes at a time. Thus,
+   int len and char byte will be allocated 8 bytes individually. 
+
+2. To send a node struct over TCP, I made_node in the sender and directly 
+   pass the node pointer and node size to the write function, which sends
+   over to the server.
+
+3. First of all, I added a remove function in the list library. Then, I
+   added the nodes to the list in a while loop by reading message (lines)
+   from a file. During sending, I send the number of nodes to server first.
+   Then, I traverse through the list and send node one by one. The receiver
+   gets the number of notes and read that many times. Finally, the receiver
+   will reconstruct the list by inserting each node, which is casted from 
+   the read buffer.
+
+The C code in the instruction declares and allocates a buffer with BUFSIZE.
+Each time, it will read from the socket to the buffer and record the
+location of the last used byte in the buffer as 'total_count'. So next time
+it will start put in the buffer at offseted location by 'total_count'.
+

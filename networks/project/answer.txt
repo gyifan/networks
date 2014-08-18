@@ -1,0 +1,152 @@
+CSCI 363 - Computer Networks
+Project 2: Emulation: Stop-and-go Protocol
+Yifan Ge
+4/25/2014
+
+First of all, use make to compile the program. In order to run the program, 
+the user has to run ./server first. Then ./client [host name] [file name] can 
+be used to send files to the host. A test run script in the runTest script
+file. The following is the output. 
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Filename: declaration-of-independence.txt
+   Total File Length: 8282
+--------------------------
+>> |Client|
+   Send pkt #65535
+waiting for response
+>> |Server|
+   Received pkt #65535, length: 32
+   Success! CRC = 0
+>> |Client|
+   Sent ACK: pkt #65535
+   Received ACK: pkt #65535
+>> |Client|
+   Send pkt #65535
+waiting for response
+>> |Server|
+   Received pkt #65535, length: 8282
+   Success! CRC = 0
+>> |Client|
+   Sent ACK: pkt #65535
+   Received ACK: pkt #65535
+<< |Source| End
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Session End
+<<<<<<<<<<<<<<<<<<<<<<<<<<
+>> |Server|
+   Received File: copy-declaration-of-independence.txt
+   Received File Length: 8282
+wrote the message
+closed 
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Filename: bode.pgm
+   Total File Length: 571498
+--------------------------
+>> |Client|
+   Send pkt #65535
+waiting for response
+>> |Server|
+   Received pkt #65535, length: 9
+   Success! CRC = 0
+>> |Client|
+   Sent ACK: pkt #65535
+   Received ACK: pkt #65535
+>> |Client|
+   Send pkt #0
+waiting for response
+>> |Server|
+   Received pkt #0, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #0
+>> |Client|
+   Received ACK: pkt #0
+>> |Client|
+   Send pkt #1
+waiting for response
+>> |Server|
+   Received pkt #1, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #1
+>> |Client|
+   Received ACK: pkt #1
+>> |Client|
+   Send pkt #2
+waiting for response
+>> |Server|
+   Received pkt #2, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #2
+>> |Client|
+   Received ACK: pkt #2
+>> |Client|
+   Send pkt #3
+waiting for response
+>> |Server|
+   Received pkt #3, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #3
+>> |Client|
+   Received ACK: pkt #3
+>> |Client|
+   Send pkt #4
+waiting for response
+>> |Server|
+   Received pkt #4, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #4
+>> |Client|
+   Received ACK: pkt #4
+>> |Client|
+   Send pkt #5
+waiting for response
+>> |Server|
+   Received pkt #5, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #5
+>> |Client|
+   Received ACK: pkt #5
+>> |Client|
+   Send pkt #6
+waiting for response
+>> |Server|
+   Received pkt #6, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #6
+>> |Client|
+   Received ACK: pkt #6
+>> |Client|
+   Send pkt #7
+waiting for response
+>> |Server|
+   Received pkt #7, length: 65499
+   Success! CRC = 0
+   Sent ACK: pkt #7
+>> |Client|
+   Received ACK: pkt #7
+>> |Client|
+   Send pkt #65535
+waiting for response
+>> |Server|
+   Received pkt #65535, length: 47506
+   Success! CRC = 0
+   Sent ACK: pkt #65535
+>> |Client|
+   Received ACK: pkt #65535
+<< |Source| End
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+  Session End
+<<<<<<<<<<<<<<<<<<<<<<<<<<
+>> |Server|
+   Received File: copy-bode.pgm
+   Received File Length: 571498
+wrote the message
+closed 
+

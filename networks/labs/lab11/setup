@@ -1,0 +1,12 @@
+#!/bin/tcsh
+
+# This shell script compiles the program and generates keys used for SSL
+# Assumption: the key file "mySrvKeyStore" doesn't exist.
+# If a file "mySrvKeyStore" is in the directory, it will be deleted with 
+# confirmation.
+javac ./client/EchoClient.java
+javac ./server/EchoServer.java
+rm -i mySrvKeystore
+keytool -genkey -keystore mySrvKeystore -keyalg RSA
+cp mySrvKeystore ./client/
+cp mySrvKeystore ./server/

@@ -1,0 +1,86 @@
+Student: Yifan Ge
+
+Lab01:
+Grade: 11/10 x.m.
+
+Grading comments: Very good! Extra credit work completed.
+
+Lab02:
+Grade: 10/10 x.m.
+
+Grading comments: Very good!
+
+Lab03:
+Grade: 10/10 x.m.
+
+Grading comments: Very good!
+
+Lab04:
+Grade: 10/10 x.m.
+
+Grading comments: Great!
+
+Lab05:
+Grade: 9/10 x.m.
+
+Grading comments: Very nice program. However, your program returned incorrectly the string for the 'getwho' client. In your superServer.c, why do you have
+
+       wrp_writen(sock, buf, 80);
+       wrp_writen(sock, ret_buf, strlen(ret_buf));
+
+What do you return in the first line? If you want to contain the extra information such as "Username list:" and "username" in front of the actual user name, why the constant '80'? The correct way of doing it is to build the string as you did, then compute the length of the entire string including the extra information, then send it to the client. See the following output, the extra, non-printable characters at the end of the output should not be there.
+
+
+================================================
+[xmeng@polaris lab05]$ ./getwho polaris
+getwho service requested
+username: xmeng
+username: xmeng
+username: xmeng
+a total of 14 entries was encounted
+Username list: 
+username: xmeng
+username: xmeng
+username: xmeng
+���P?[xmeng@polaris lab05]$ 
+================================================
+
+If you want to send the size of the return string first, which is a good way to implement this type of protocol, you should do the following on the server side
+
+     length = strlen(return_string);
+     wrp_writen(sock, &length, sizeof(int));  // send size as int first
+     wrp_writen(sock, return_string, length); // send the actual string
+
+on the client side,
+
+      int leng;
+
+      wrp_readn(s, &leng, sizeof(int));  // read the incoming string length
+      wrp_readn(s, buf, leng);           // read the actual string
+
+
+Lab06:
+Grade: 10/10 x.m.
+Grading comments: Very good!
+
+Lab07:
+Grade: 0/10 x.m.
+Updated grade: 9/10 x.m.
+Grading comments: I don't see any submission for lab 7.
+Very good work, but it is a late submission.
+
+Lab08:
+Grade: 9/10 x.m.
+Grading comments: Please fix all the compiling warnings. Otherwise very good work!
+
+Lab09:
+Grade: 10/10 x.m.
+Grading comments: Very good. I like your "runTest" script!
+
+Lab10:
+Grade: 10/10 x.m.
+Grading comments: Very good!
+
+Lab11:
+Grade: 10/10 x.m.
+Grading comments: Very good!

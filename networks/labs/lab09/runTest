@@ -1,0 +1,17 @@
+#
+# This is a shell script that demonstrate the CRC lab
+# CSCI 363 Computer Networks
+# Yifan Ge
+# 4/15/2014
+#
+make clean
+make
+./gateway 14017 localhost 14018 1 &
+./sink 14018 &
+./source localhost 14017 declaration-of-independence.txt
+./source localhost 14017 gettysburg-address.txt
+./source localhost 14017 gateway
+killall gateway
+killall sink
+make clean
+#end

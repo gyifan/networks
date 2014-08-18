@@ -1,0 +1,45 @@
+CSCI 363 Computer Networks
+CRC Lab 4/15/2014
+Yifan Ge
+filename: answer.txt
+
+To run the program, the user need to make the programs. Then start gateway and
+sink. Finally use the source to send files.
+
+A test run is written in the script: runTest. The output is attached below.
+
+/bin/rm -f sink.o source.o wrappers.o crc-api.o crcmodel.o gateway.o source sink gateway  core* *~ semantic.cache
+gcc -c -g source.c
+gcc -c -g wrappers.c
+gcc -c -g crc-api.c
+gcc -c -g crcmodel.c
+gcc -o source source.o  wrappers.o crc-api.o crcmodel.o
+gcc -c -g sink.c
+gcc -o sink sink.o  wrappers.o crc-api.o crcmodel.o
+gcc -c -g gateway.c
+gcc -o gateway gateway.o  wrappers.o
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Sending file declaration-of-independence.txt
+   Length: 8284
+<< End Source
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Sending file gettysburg-address.txt
+   Length: 1479
+<< End Source
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Sending file gateway
+   Length: 20046
+<< End Source
+/bin/rm -f sink.o source.o wrappers.o crc-api.o crcmodel.o gateway.o source sink gateway  core* *~ semantic.cache

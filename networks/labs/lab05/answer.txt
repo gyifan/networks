@@ -1,0 +1,15 @@
+CSCI 363 - Computer Networks
+Lab 5 - utmp superserver
+Yifan Ge
+02/25/2014
+
+Problem 1
+
+select(), FD_ZERO(), and FD_SET() all work on a set of file descriptors. 
+After a fd_set is initialized, the FD_ZERO() can clear the set. FD_SET()
+and FD_CLR() respectively add and remove a given file descriptor from 
+a set. FD_ISSET() tests to see if a file descriptor is part of the set.
+select() allows a program to monitor multiple file descriptors, waiting
+until one or more of the file descriptors become "ready".
+
+

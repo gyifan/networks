@@ -1,0 +1,30 @@
+CSCI 363 - Computer Network
+Yifan Ge
+01/21/2013
+Lab 01: Systems Programming in C
+
+(1.2)
+The xxd myfile output matches the data that file-test created. The file-test 
+creates a write only file called myfile. It also creates a buffer struct which
+contains an int, a double, a short, and 80 char. file-test puts 123 in the
+int, 1.1314926 in the double, 9 in the short, and "Ahoy there!" in the 80
+char. Then it write the buffer struct three times repeatly to myfile. 
+
+In the xxd myfile output, it clearly shows the these three repetitions. The
+hex output matches the both the nubmer and acsii code. So the file-test and 
+xxd output agree with each other.
+
+(1.3)
+myfile and input-file contain the same peice of information but in different 
+format. In myfile, 123, 1.1314926, and 9 are coded in primitive type as int,
+double, and short respectively. However, input-file coded these three numbers
+as acsii code. The read-test program assumes the numbers will be in int, 
+double and short format. So it converts the acsii coded number in input-file
+to int, double, and short. This misinterpretation is caused by inconsistant
+protocol.
+
+(1.4)
+No. Using C streams still has the same problem of different data types. It
+would display different output for myfile and input-file.
+
+Finished Extra-credit

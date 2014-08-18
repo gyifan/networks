@@ -1,0 +1,45 @@
+/bin/rm -f sink.o source.o wrappers.o crc-api.o crcmodel.o sag-api.o list.o source sink  core* *~ semantic.cache
+gcc -c -g source.c
+gcc -c -g wrappers.c
+gcc -c -g sag-api.c
+gcc -c -g crc-api.c
+gcc -c -g crcmodel.c
+gcc -c -g list.c
+gcc -o source source.o  wrappers.o sag-api.o crc-api.o crcmodel.o list.o
+gcc -c -g sink.c
+gcc -o sink sink.o  wrappers.o crc-api.o crcmodel.o sag-api.o list.o
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Length: 8282
+<< End Source
+node 65535 ->
+type:0, len:8282
+
+==========================
+  Starting a new session.
+==========================
+>> |Source|
+   Length: 571498
+<< End Source
+node 0 ->
+type:0, len:65499
+node 1 ->
+type:0, len:65499
+node 2 ->
+type:0, len:65499
+node 3 ->
+type:0, len:65499
+node 4 ->
+type:0, len:65499
+node 5 ->
+type:0, len:65499
+node 6 ->
+type:0, len:65499
+node 7 ->
+type:0, len:65499
+node 65535 ->
+type:0, len:47506
+/bin/rm -f sink.o source.o wrappers.o crc-api.o crcmodel.o sag-api.o list.o source sink  core* *~ semantic.cache

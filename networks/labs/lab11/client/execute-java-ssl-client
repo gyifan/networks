@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -n Please enter your password for client ssl key : 
+read -s password
+echo
+java -Djavax.net.ssl.trustStore=mySrvKeystore -Djavax.net.ssl.trustStorePassword=$password EchoClient

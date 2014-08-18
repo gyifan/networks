@@ -1,0 +1,11 @@
+CSCI 363 - Computer Networks
+Lab 11 - SSL in Java
+Yifan Ge
+4/22/2014
+
+In order to run the programs, the user need to run the script: setup.
+This script compiles the java programs in the client and server folder and
+generates the keys used for SSL.
+
+Then the user can open two terminals one for client folder and one for server
+folder. Run execute-java-ssl-server first and then execute-java-ssl-client.

@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -n Please enter your password for server ssl key : 
+read -s password
+echo
+java -Djavax.net.ssl.keyStore=mySrvKeystore -Djavax.net.ssl.keyStorePassword=$password EchoServer
